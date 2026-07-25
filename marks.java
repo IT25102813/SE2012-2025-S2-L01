@@ -22,7 +22,8 @@ public class marks{
     		System.out.print("3. Get Average of a Subject\n");
     		System.out.print("4. Get Average of Student\n");
     		System.out.print("5. Get total marks of Student\n");
-    		System.out.print("6. Exit\n");
+            System.out.print("6. Table of Students and marks\n");
+    		System.out.print("7. Exit\n");
 
     		System.out.print("\nEnter your choice: ");
     		choice = scanner.nextInt();
@@ -120,11 +121,41 @@ public class marks{
                         System.out.printf("\nTotal Marks of Student %d is %d \n", student_id + 1, total_marks);
                         break;
 
-                case 6:
+                case 6: // Display Grades Summary
+                    System.out.println("\n----------------- Grade Summary -----------------");
+                    System.out.printf("%-12s %-12s %-12s %-12s\n", "Student ID", "Math", "Chemistry", "Physics");
+                    System.out.println("-------------------------------------------------");
+
+                    for (int s = 0; s < num_of_students; s++) {
+                        System.out.printf("%-12d ", s + 1);
+
+                        for (int sub = 0; sub < 3; sub++) {
+                            int score = marks_array[s][sub];
+                            String grade;
+
+                            if (score >= 90) {
+                                grade = "Grade A";
+                            } else if (score >= 80) {
+                                grade = "Grade B";
+                            } else if (score >= 70) {
+                                grade = "Grade C";
+                            } else if (score >= 60) {
+                                grade = "Grade D";
+                            } else {
+                                grade = "Fail";
+                            }
+
+                            System.out.printf("%-12s ", grade);
+                        }
+                        System.out.println(); // Move to next student line
+                    }
+                    break;
+
+                case 7:
                         break;
 
     		}
-        }while (choice !=6 );
+        }while (choice !=7 );
 
 		scanner.close();
 	}
