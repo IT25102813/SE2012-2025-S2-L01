@@ -14,6 +14,6 @@ public class Welcome{
 
         //printing output
         System.out.printf("Welcome to Second Year %s %s\n", f_name, l_name);
+        scanner.close();
         }
 }
-
